@@ -1,0 +1,2 @@
+update customer_address set main =1 where id in (select maxid from (SELECT  customer_id,type,sum(main) as main1,max(id) as maxid
+FROM `customer_address` group by customer_id, type having main1 < 1) k1)
